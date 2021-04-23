@@ -1,0 +1,25 @@
+<div>
+    <h1>Project Details</h1>
+    <button class="btn btn-primary mr-sm-2" routerLink="../ProjectCreate">Add Project</button>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Projects</th>
+                <th scope="col">Details</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let projects of projects; trackBy: projects.id">             
+                <td scope="row">{{ projects.id  }}</td>
+                <td>{{ projects.projectname  }}</td>
+                <td>{{ projects.details  }}</td>          
+                <td>
+                    <button class="btn btn-outline-primary" routerLink="../ProjectUpdate">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
