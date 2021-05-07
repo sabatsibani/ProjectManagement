@@ -1,0 +1,40 @@
+<h2>Update Task</h2>
+<form #updateTaskForm="ngForm">
+    <div class="form-group">
+        <label for="project">Project</label>
+        <select class="form-control" required name="projectID" [(ngModel)]='taskService.updateTaskCollection.projectID'>
+            <option value="0">--Select--</option>
+            <option *ngFor="let project of projects" value={{project.id}}
+                [selected]="project.id==taskService.updateTaskCollection.projectID">{{project.id}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="user">Assigned to user</label>
+        <select class="form-control" required name="assignedToUserID"
+            [(ngModel)]='taskService.updateTaskCollection.assignedToUserID'>
+            <option value="0">--Select--</option>
+            <option *ngFor="let user of users" value={{user.id}}
+                [selected]="user.id==taskService.updateTaskCollection.assignedToUserID">
+                {{user.firstname + " "+ user.lastname }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" required name="status" [(ngModel)]='taskService.updateTaskCollection.status'>
+            <option *ngFor="let status of listStatus" ngValue={{status.id}}
+                [selected]="status.id==taskService.updateTaskCollection.status">{{status.statusname}}</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="detail">Details</label>
+        <textarea class="form-control" rows="3" required [(ngModel)]='taskService.updateTaskCollection.detail' name="detail"></textarea>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary mr-sm-2" type="submit" [disabled]="!updateTaskForm.valid"
+            (click)="onTaskUpdate()">Update</button>
+        <button class="btn btn-danger mr-sm-2"
+            (click)="onTaskDelete(taskService.updateTaskCollection.id)">Delete</button>
+        <button class="btn btn-secondary mr-sm-2" routerLink="../Task">Cancel</button>
+    </div>
+</form>

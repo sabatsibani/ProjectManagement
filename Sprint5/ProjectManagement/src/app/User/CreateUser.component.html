@@ -1,0 +1,27 @@
+<h2>Add User</h2>
+<form #addUserForm="ngForm" (ngSubmit)="onAddUser(addUserForm)">
+<div class="form-group">
+    <label for="fname">First Name</label>
+    <input type="text" class="form-control" required ngModel name="firstName" />
+</div>
+<div class="form-group">
+    <label for="lname">Last Name</label>
+    <input type="text" class="form-control" required ngModel name="lastName"/>
+</div>
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" required ngModel name="email" />
+</div>
+<div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" />
+</div>
+<div class="form-group">
+    <label for="confirmpassword">Confirm Password</label>
+    <input type="password" class="form-control" required ngModel name="password"/>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary mr-sm-2" [disabled]="!addUserForm.valid">Save</button>
+    <button class="btn btn-secondary mr-sm-2" routerLink="../User">Cancel</button>
+</div>
+</form>

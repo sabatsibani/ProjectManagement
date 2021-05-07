@@ -1,0 +1,20 @@
+<h2>Update Project</h2>
+<form #updateProjectForm="ngForm">
+<div class="form-group">
+    <label for="projectName">Project Name</label>
+    <input type="text" class="form-control" [(ngModel)]='serviceProject.updateProjectCollection.projectname' required
+    name="projectname"/>
+</div>
+<div class="form-group">
+    <label for="details">Details</label>
+    <textarea class="form-control" rows="3" [(ngModel)]='serviceProject.updateProjectCollection.detail' required
+    name="detail"></textarea>
+</div>
+
+<div class="form-group">
+    <button class="btn btn-primary mr-sm-2" [disabled]="!updateProjectForm"
+    (click)="onProjectUpdate()">Update</button>
+    <button class="btn btn-danger mr-sm-2"(click)="onProjectDelete(serviceProject.updateProjectCollection.id)">Delete</button>
+    <button class="btn btn-secondary mr-sm-2" routerLink="../Project">Cancel</button>
+</div>
+</form>

@@ -1,0 +1,45 @@
+<h2>Add Task</h2>
+<form #addTaskForm ="ngForm" (ngSubmit)="onAddTask(addTaskForm)">
+    <div class="form-group">
+        <table>
+            <tr>
+                <td class="form-group">
+                    <label for="project">Project</label>
+                </td>
+                <td>
+                    <select   class="form-control" required name="projectID" ngModel>
+                        <option value="0">--Select--</option>
+                        <option *ngFor ="let project of projects" value={{project.id}}>{{project.projectname}}</option>
+                     </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="form-group">
+                    <label for="user">Assigned to User</label>
+                </td>
+                <td>
+                    <select class="form-control"required name="assignedToUserID" ngModel>
+                        <option ngValue="0">--Select--</option>
+                            <option *ngFor="let user of users" ngValue={{user.id}}>{{user.firstname + " "+ user.lastname }}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="form-group">
+                    <label for="details">Details</label>
+                </td>
+                <td>    
+                    <textarea class="form-control" rows="3" required ngModel name="detail"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td  class="form-group">
+                    <button class="btn btn-primary mr-sm-2" [disabled]="!addTaskForm.valid">Save</button>
+                </td>
+                <td>
+                    <button class="btn btn-secondary mr-sm-2" routerLink="../Task">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

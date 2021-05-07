@@ -1,0 +1,29 @@
+<div>
+    <h1>Task Details</h1>
+    <button class="btn btn-primary mr-sm-2" routerLink="../TaskCreate">Add Task</button>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ProjectId</th>
+                <th>UserId</th>
+                <th>Details</th>
+                <th>Status</th>
+                <th>CreatedOn</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tasks of tasks;" (click)="onSelected(tasks)">
+                
+                <td>{{ tasks.id }}</td>
+                <td>{{ tasks.projectID }}</td>
+                <td>{{ tasks. assignedToUserID}}</td>
+                <td>{{ tasks.detail }}</td>
+                <td>{{ tasks.status }}</td>   
+                <td>{{ tasks.createdOn }}</td>       
+            </tr>
+        </tbody>
+    </table>
+</div>
