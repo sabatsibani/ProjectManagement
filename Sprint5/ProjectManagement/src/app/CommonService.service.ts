@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
-@Injectable({
+@Inject({
   providedIn: 'root'
 })
 export class CommonServiceService<T> {
